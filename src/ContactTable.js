@@ -1,38 +1,34 @@
 import ContactRow from './ContactRow';
 
+
 /**
- * Table de contacte
+ * Contact table
+ * @return {HTMLElement} contactTable
+ */
+function ContactTable({contact}) {
+  /**
+ * Table de contact
  * @return {jsx}
  */
-function ContactTable() {
-  const data = [
-    {
-      name: 'Tom Jackson',
-      phone: '555-444-333',
-      email: 'tom@gmail.com',
-    },
-    {
-      name: 'Mike James',
-      phone: '555-777-888',
-      email: 'mikejames@gmail.com',
-    },
-  ];
-
-  const jsxData = data.map((elt) => (
+  const jsxData = contact.map((elt, index) => (
     <ContactRow
-      name = {elt.name}
-      phone = {elt.phone}
-      email = {elt.email}/>
+      key={index}
+      name={elt.name}
+      phone={elt.phone}
+      email={elt.email} />
   ));
-
   return (
     <table>
-      <tr>
-        <th>Name</th>
-        <th>Phone</th>
-        <th>Email</th>
-      </tr>
-      {jsxData}
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Phone</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {jsxData}
+      </tbody>
     </table>
   );
 }
