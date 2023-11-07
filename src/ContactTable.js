@@ -1,11 +1,14 @@
+import {useContext} from 'react';
 import ContactRow from './ContactRow';
+import {ContactContext} from './ContactContext';
 
 
 /**
  * Contact table
  * @return {HTMLElement} contactTable
  */
-function ContactTable({contact}) {
+function ContactTable() {
+  const {contact} = useContext(ContactContext);
   /**
  * Table de contact
  * @return {jsx}
@@ -17,6 +20,7 @@ function ContactTable({contact}) {
       phone={elt.phone}
       email={elt.email} />
   ));
+
   return (
     <table>
       <thead>

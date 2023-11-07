@@ -1,20 +1,21 @@
-import {useState} from 'react';
 import ContactTable from './ContactTable';
 import SearchBar from './SearchBar';
-import {data} from './Data';
+import ContactForm from './ContactForm';
+import ContactContextProvider from './ContactContext';
 
 /**
  * Composant racine
  * @return {jsx}
  */
 function App() {
-  const [contact, setContact] = useState(data);
-
   return (
     <div>
       <h1>Filterable React List</h1>
-      <SearchBar setContact={setContact} />
-      <ContactTable contact={contact} />
+      <ContactContextProvider>
+        <SearchBar />
+        <ContactTable />
+        <ContactForm />
+      </ContactContextProvider>
     </div>
 
   );

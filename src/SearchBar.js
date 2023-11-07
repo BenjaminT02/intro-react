@@ -1,12 +1,14 @@
-import {useState} from 'react';
+import {useContext, useState} from 'react';
 import {data} from './Data';
+import {ContactContext} from './ContactContext';
 
 /**
  * Composant html contenant la search bar
  * @return {jsx}
  */
-function SearchBar({setContact}) {
+function SearchBar() {
   const [input, setInput] = useState('');
+  const {setContact} = useContext(ContactContext);
   /**
    * Binding onchange
    * @param {Event} event
